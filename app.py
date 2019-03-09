@@ -5,7 +5,11 @@ import keras
 from keras.models import model_from_json
 app = Flask(__name__)
 
-@app.route('/get_me_the_results', methods = ['POST'])
+@app.route('/')
+def home():
+    return "Welcome to site"
+
+@app.route('/get_results', methods = ['POST'])
 def get_me_the_results():
     keras.backend.clear_session()
     json_file = open('/Users/deepakraju/crime_detection/src/model.json', 'r')
