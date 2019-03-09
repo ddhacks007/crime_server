@@ -12,11 +12,11 @@ def home():
 @app.route('/get_results', methods = ['POST'])
 def get_me_the_results():
     keras.backend.clear_session()
-    json_file = open('/Users/deepakraju/crime_detection/src/model.json', 'r')
+    json_file = open('./model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
-    loaded_model.load_weights("/Users/deepakraju/crime_detection/src/model.h5")
+    loaded_model.load_weights("./model.h5")
     k = request.get_json()
     k = np.array(k)
     k = (k/255.0).reshape(1,230,230,3)
